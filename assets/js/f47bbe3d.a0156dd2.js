@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwecasino_document=self.webpackChunkwecasino_document||[]).push([[3772],{4061:e=>{e.exports=JSON.parse('{"name":"docusaurus-plugin-content-pages","id":"default"}')}}]);
