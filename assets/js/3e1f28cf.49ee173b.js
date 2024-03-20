@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwecasino_document=self.webpackChunkwecasino_document||[]).push([[9483],{9646:e=>{e.exports=JSON.parse('{"permalink":"/wecasino-docs/blog/tags/hola","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);
