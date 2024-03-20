@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwecasino_document=self.webpackChunkwecasino_document||[]).push([[2332],{5427:s=>{s.exports=JSON.parse('{"label":"docusaurus","permalink":"/wecasino-docs/blog/tags/docusaurus","allTagsPath":"/wecasino-docs/blog/tags","count":4,"unlisted":false}')}}]);

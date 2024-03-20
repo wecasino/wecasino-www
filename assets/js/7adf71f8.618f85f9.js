@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwecasino_document=self.webpackChunkwecasino_document||[]).push([[6471],{8659:e=>{e.exports=JSON.parse('{"label":"facebook","permalink":"/wecasino-docs/blog/tags/facebook","allTagsPath":"/wecasino-docs/blog/tags","count":1,"unlisted":false}')}}]);
