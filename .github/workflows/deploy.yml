@@ -1,0 +1,81 @@
+name: Deploy Documentation
+
+on:
+  repository_dispatch:
+    types: [update-docs]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: '版本類型 (main/beta/alpha/dev)'
+        required: true
+        type: choice
+        options:
+          - main
+          - beta
+          - alpha
+          - dev
+      version_number:
+        description: '版本號 (例如: 1.8.0)'
+        required: true
+        type: string
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Update documentation
+        if: github.event_name == 'repository_dispatch'
+        run: |
+          # 從事件中獲取版本類型和版本號
+          VERSION_TYPE=${{ github.event.client_payload.version_type }}
+          VERSION_NUMBER=${{ github.event.client_payload.version_number }}
+          
+          # 建立版本目錄
+          if [ "$VERSION_TYPE" = "main" ]; then
+            if [ "$VERSION_NUMBER" = "current" ]; then
+              TARGET_DIR="versioned_docs/version-main"
+            else
+              TARGET_DIR="versioned_docs/version-main-$VERSION_NUMBER"
+            fi
+          else
+            if [ "$VERSION_NUMBER" = "current" ]; then
+              TARGET_DIR="versioned_docs/version-$VERSION_TYPE"
+            else
+              TARGET_DIR="versioned_docs/version-$VERSION_TYPE-$VERSION_NUMBER"
+            fi
+          fi
+          
+          # 確保目錄存在
+          mkdir -p "$TARGET_DIR"
+          
+          # 從事件中獲取文檔內容
+          echo "${{ github.event.client_payload.content }}" > "$TARGET_DIR/intro.md"
+
+      - name: Build website
+        run: pnpm build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          publish_branch: gh-pages 

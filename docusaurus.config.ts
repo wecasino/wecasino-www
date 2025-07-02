@@ -5,26 +5,27 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
-  favicon: 'img/favicon.ico',
 
+  // Site metadata
+
+  title: 'WECasino Documentation',
+  tagline: 'WECasino API Documentation',
+  favicon: 'img/favicon.ico',
+  // Set the production url of your site here
+  url: 'https://www.wecasino.live',
+  // Set the /<baseUrl>/ pathname under which your site is served
+  // For GitHub pages deployment, it is often '/<projectName>/'
+  baseUrl: '/',
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
   },
 
-  // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
-
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
-
+  organizationName: 'wecasino', // Usually your GitHub org/user name.
+  projectName: 'wecasino-www', // Usually your repo name.
+  deploymentBranch: 'main',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
@@ -42,26 +43,27 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
+          includeCurrentVersion: false,
+          versions: {
+            // https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-docs#VersionsConfig
+            // badge: true,
+            '1.8.0': {
+              label: '1.8.0',
+              banner: 'none', 
+              badge: true, // always show badge
+              noIndex: false, // only last version can be indexed
+            },
+            // banner: 'unmaintained',
+            // noIndex: true,
+            '1.7.0': {
+              label: '1.7.0',
+              banner: 'unmaintained',
+              badge: true,
+              noIndex: true,
+            },
           },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
         },
+        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -69,25 +71,87 @@ const config: Config = {
     ],
   ],
 
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'beta',
+        path: 'beta'
+        routeBasePath: '/docs/beta',
+        sidebarPath: './sidebars.ts',
+        includeCurrentVersion: false,
+        versions: {
+          '1.8.0-beta.2': {
+            label: '測試版',
+            path: '1.8.0/beta/1.8.0-beta.2',
+            banner: 'unreleased',
+          },
+          '1.8.0-beta.1': {
+            label: '測試版',
+            path: '1.8.0/beta/1.8.0-beta.1',
+            banner: 'unreleased',
+          },
+        },
+      },
+    ],
+    // [
+    //   '@docusaurus/plugin-content-docs',
+    //   {
+    //     id: 'alpha',
+    //     path: 'versioned_docs/1.8.0/alpha',
+    //     routeBasePath: '/docs/alpha',
+    //     sidebarPath: './sidebars.ts',
+    //     lastVersion: '1.8.0-alpha.1',
+    //     versions: {
+    //       '1.8.0-alpha.1': {
+    //         label: '開發版',
+    //         path: '1.8.0/alpha/1.8.0-alpha.1',
+    //         banner: 'unreleased',
+    //       },
+    //     },
+    //   },
+    // ],
+    // [
+    //   '@docusaurus/plugin-content-docs',
+    //   {
+    //     id: 'dev',
+    //     path: 'versioned_docs/1.8.0/dev',
+    //     routeBasePath: '/docs/dev',
+    //     sidebarPath: './sidebars.ts',
+    //     lastVersion: '1.8.0-dev.1',
+    //     versions: {
+    //       '1.8.0-dev.1': {
+    //         label: '開發版',
+    //         path: '1.8.0/dev/1.8.0-dev.1',
+    //         banner: 'unreleased',
+    //       },
+    //     },
+    //   },
+    // ],
+  ],
+
   themeConfig: {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'My Site',
+      title: 'WECasino Docs',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'WECasino Logo',
         src: 'img/logo.svg',
       },
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          type: 'docsVersion',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Release',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/facebook/docusaurus',
+          type: 'docsVersionDropdown',
+          position: 'right',
+          dropdownActiveClassDisabled: true,
+        },
+        {
+          href: 'https://github.com/wecasino/wecasino-www',
           label: 'GitHub',
           position: 'right',
         },
@@ -100,43 +164,34 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Tutorial',
-              to: '/docs/intro',
+              label: 'Release',
+              to: 'docs',
+            },
+            {
+              label: 'beta',
+              to: '/docs/beta',
+            },
+            {
+              label: 'alpha',
+              to: '/docs/alpha',
+            },
+            {
+              label: 'dev',
+              to: '/docs/dev',
             },
           ],
         },
         {
-          title: 'Community',
+          title: '更多',
           items: [
-            {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
-            },
-          ],
-        },
-        {
-          title: 'More',
-          items: [
-            {
-              label: 'Blog',
-              to: '/blog',
-            },
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/wecasino/wecasino-www',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} WECasino. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,
