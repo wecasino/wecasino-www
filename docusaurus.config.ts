@@ -71,29 +71,29 @@ const config: Config = {
     ],
   ],
 
-  plugins: [
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'beta',
-        path: 'beta'
-        routeBasePath: '/docs/beta',
-        sidebarPath: './sidebars.ts',
-        includeCurrentVersion: false,
-        versions: {
-          '1.8.0-beta.2': {
-            label: '測試版',
-            path: '1.8.0/beta/1.8.0-beta.2',
-            banner: 'unreleased',
-          },
-          '1.8.0-beta.1': {
-            label: '測試版',
-            path: '1.8.0/beta/1.8.0-beta.1',
-            banner: 'unreleased',
-          },
-        },
-      },
-    ],
+  // plugins: [
+  //   [
+  //     '@docusaurus/plugin-content-docs',
+  //     {
+  //       id: 'beta',
+  //       path: 'beta',
+  //       routeBasePath: '/docs/beta',
+  //       sidebarPath: './sidebars.ts',
+  //       includeCurrentVersion: false,
+  //       versions: {
+  //         '1.8.0-beta.2': {
+  //           label: '測試版',
+  //           path: '1.8.0/beta/1.8.0-beta.2',
+  //           banner: 'unreleased',
+  //         },
+  //         '1.8.0-beta.1': {
+  //           label: '測試版',
+  //           path: '1.8.0/beta/1.8.0-beta.1',
+  //           banner: 'unreleased',
+  //         },
+  //       },
+  //     },
+  //   ],
     // [
     //   '@docusaurus/plugin-content-docs',
     //   {
@@ -128,7 +128,7 @@ const config: Config = {
     //     },
     //   },
     // ],
-  ],
+  // ],
 
   themeConfig: {
     // Replace with your project's social card
