@@ -42,5 +42,5 @@ Sicbo data format, no shoes, only one host dealer position, using Sicbo specific
 | 1 | ROUND_START | Round start<br/>Mark round start |
 | 2 | ROUND_BET | Start betting<br/>Duration: betting seconds<br/>ex Duration: 45 = 45 seconds |
 | 3 | NO_MORE_BET | Stop betting<br/>Duration: betting seconds<br/>ex Duration: 45 = 45 seconds |
-| 4 | THROW_DICE | Throw dice (get result)<br/>Action:<br/>Cards:<br/>• CardType: DICE (target game is Sicbo)<br/>• List: [{Code: DICE_2-DICE_3-DICE_5}] (open 2, 3, 5 points) |
-| 5 | ROUND_FINISHED | Round end<br/>Mark round end | 
+| 4 | THROW_DICE | Throw dice (get result)<br/>Action:<br/>Cards:<br/>• CardType: DICE (target game is Sicbo)<br/>• List: [&#123;Code: DICE_2-DICE_3-DICE_5&#125;] (open 2, 3, 5 points) |
+| 5 | ROUND_FINISHED | Round end<br/>Mark round end |

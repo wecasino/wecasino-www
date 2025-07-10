@@ -32,4 +32,4 @@ After successful application, you will receive the following information:
 
 1. After approval, your IP will be added to the whitelist
 2. Only IPs in the whitelist can call the API
-3. If you need to add new IPs, please contact the technical support team 
+3. If you need to add new IPs, please contact the technical support team

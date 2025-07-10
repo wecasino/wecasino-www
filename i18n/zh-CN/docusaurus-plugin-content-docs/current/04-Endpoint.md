@@ -1,20 +1,20 @@
 <!-- markdownlint-disable MD033 -->
-# API Endpoints
+# 接口端点
 
-## Notify API Interface
+## Notify API 接口
 
 ### AMQP
 
-1. Notify API uses AMQP protocol. After merchants register subscriptions to the port, all subscribed table game events will be sent immediately when they occur.
-2. Each operator account will have an independent Queue as cache, which will not be shared with other operators. Operator programs should keep the Queue empty at all times, so data can be transmitted immediately.
-3. If the operator has maintenance or other events and cannot process messages in time, after the system recovers, all cached events during this period in the Queue will be received.
-4. Notification type (GameNotifyType) will be placed in the **Type** field of the AMQP standard packet, as well as in the **Header**
-5. Message objects are compressed into Binary using grpc and placed in the **Body** field of the AMQP standard packet
-6. When receiving packets, the operator system can parse the **Body** field correctly with the corresponding format according to the **Type** field to obtain the message object.
+1. Notify API 使用 AMQP 协议，商户向端口注册订阅后，所有订阅桌游戏事件会在发生第一时间发送。
+2. 每个运营商账号会有独立的Queue作为缓存，不会与其他运营商共用，运营商程序应常保Queue为空，如此数据可在第一时间传递。
+3. 如果运营商有维护或其他事件而未能及时消化消息，于系统恢复后，将会收到Queue中所有此段期间缓存事件。
+4. 通知类型(GameNotifyType)会放在AMQP标准封包中的**Type**字段，以及**Header**中
+5. 消息对象，则是以grpc压缩成Binary，放在AMQP标准封包中的**Body**字段
+6. 运营商系统可以在收取封包时，依照**Type**字段，用对应的格式，正确解析**Body**字段，取得消息对象。
 
-### Examples
+### 示例
 
-1. golang amqp091 package parsing example
+1. golang amqp091 套件解析示例
 
     ``` go
     func(delivery amqp091.Delivery) {
@@ -53,23 +53,23 @@
 
     ```
 
-2. Complete example [Github](https://github.com/wecasino/wecasino-demo-backend-go/blob/main/queue/queue.go#L122)
+2. 完整示例 [Github](https://github.com/wecasino/wecasino-demo-backend-go/blob/main/queue/queue.go#L122)
 
-## Provider API Query Interface
+## Provider API 查询接口
 
-### gRPC Interface
+### gRPC 接口
 
-1. Provider API uses proto-defined service and exposes gRPC interface externally.
-2. proto can be found in our [GITHUB](https://github.com/wecasino/wecasino-proto/tree/main/protos)
+1. Provider API 使用 proto定义 service，并开放 grpc 对外接口。
+2. proto可以参阅我们的[GITHUB](https://github.com/wecasino/wecasino-proto/tree/main/protos)
 
 ### HTTP API
 
-1. Provider API also provides HTTP API method.
-2. HTTP API please refer to [Swagger](https://api-doc.beta.wecasino.live)
+1. Provider API 我们也提供 HTTP API方式。
+2. HTTP API 请详阅 [Swagger](https://api-doc.beta.wecasino.live)
 
-### Time Limit
+### 期限
 
-1. Provider API provides records for the last 7 days
+1. Provider API 提供最近7天回查记录
 
 ## Recorder Service
 
@@ -77,9 +77,9 @@
 
 ### FetchShiftRecord
 
-**Description**: Read shift record list
+**说明**：读取班次记录list
 
-**Request Data (Request Message)**:
+**请求数据 (Request Message)**：
 
 ```json
 {
@@ -87,7 +87,7 @@
 }
 ```
 
-**Response Data Format**:
+**返回数据格式**：
 
 ```json
 {
@@ -127,9 +127,9 @@
 
 ### FetchLastOneShiftRecord
 
-**Description**: Read latest shift record
+**说明**：读取最新班次记录
 
-**Request Data (Request Message)**:
+**请求数据 (Request Message)**：
 
 ```json
 {
@@ -137,7 +137,7 @@
 }
 ```
 
-**Response Data Format**:
+**返回数据格式**：
 
 ```json
 {
@@ -171,17 +171,17 @@
 
 ### FetchShoeRecord
 
-**Description**: Read shoe record list (not applicable to Lucky Wheel)
+**说明**：读牌靴记录list（幸运轮不适用）
 
 ### FetchLastOneShoeRecord
 
-**Description**: Read latest shoe record (not applicable to Lucky Wheel)
+**说明**：读最新牌靴记录（幸运轮不适用）
 
 ### FetchRoundRecord
 
-**Description**: Read game round record list
+**说明**：读游戏局号记录list
 
-**Request Data (Request Message)**:
+**请求数据 (Request Message)**：
 
 ```json
 {
@@ -189,7 +189,7 @@
 }
 ```
 
-**Response Data Format**:
+**返回数据格式**：
 
 ```json
 {
@@ -327,9 +327,9 @@
 
 ### FetchLastOneRoundRecord
 
-**Description**: Read latest game round record
+**说明**：读取最新游戏局号记录
 
-**Request Data (Request Message)**:
+**请求数据 (Request Message)**：
 
 ```json
 {
@@ -337,7 +337,7 @@
 }
 ```
 
-**Response Data Format**:
+**返回数据格式**：
 
 ```json
 {
@@ -475,26 +475,26 @@
 
 ## ProviderService
 
-* Passive interface that game suppliers need to expose
+* 游戏供应商需要暴露的被动接口
 
 ``` proto
 service ProviderService {
-  // Get real-time game list
+  // 获取实时游戏列表
  rpc FetchGameProvideList(FetchGameProvideListRequest) returns (FetchGameProvideListResponse);
 
- // Get single real-time game information
+ // 获取单个实时游戏信息
  rpc FetchGameProvide(FetchGameProvideRequest) returns (FetchGameProvideResponse);
 
- // Read real-time game table information
+ // 读取实时游戏桌信息
  rpc FetchCurrentGame(FetchCurrentGameRequest) returns (FetchCurrentGameResponse);
 }
 ```
 
 ### FetchGameProvideList
 
-**Description**: Get real-time game list
+**说明**：获取实时游戏列表
 
-**Request Data (Request Message)**:
+**请求数据 (Request Message)**：
 
 ```json
 {
@@ -502,7 +502,7 @@ service ProviderService {
 }
 ```
 
-**Response Data Format**:
+**返回数据格式**：
 
 ```json
 {
@@ -537,9 +537,9 @@ service ProviderService {
 
 ### FetchGameProvide
 
-**Description**: Get single real-time game information
+**说明**：获取单个实时游戏信息
 
-**Request Data (Request Message)**:
+**请求数据 (Request Message)**：
 
 ```json
 {
@@ -548,7 +548,7 @@ service ProviderService {
 }
 ```
 
-**Response Data Format**:
+**返回数据格式**：
 
 ```json
 {
@@ -569,9 +569,9 @@ service ProviderService {
 
 ### FetchCurrentGame
 
-**Description**: Read real-time game table information
+**说明**：读取实时游戏桌信息
 
-**Request Data (Request Message)**:
+**请求数据 (Request Message)**：
 
 ```json
 {
@@ -581,7 +581,7 @@ service ProviderService {
 }
 ```
 
-**Response Data Format**:
+**返回数据格式**：
 
 ```json
 {

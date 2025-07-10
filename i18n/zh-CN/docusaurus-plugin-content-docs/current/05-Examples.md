@@ -1,16 +1,16 @@
 <!-- markdownlint-disable MD033 -->
-# 推播與解析實例
+# 推送与解析实例
 
-## 範例
+## 示例
 
-### golang amqp091 套件解析範例
+### golang amqp091 套件解析示例
 
-完整範例 [Github](https://github.com/wecasino/wecasino-demo-backend-go/blob/main/queue/queue.go#L122)
+完整示例 [Github](https://github.com/wecasino/wecasino-demo-backend-go/blob/main/queue/queue.go#L122)
 
-1. 根據 amqp delivery.Type 取得對應的通知類型, 根據類型使用proto 解析 body 格式
-2. 遊戲回合卡牌(結果)的解析方式，另外在各遊戲章節補充解析
+1. 根据 amqp delivery.Type 取得对应的通知类型，根据类型使用 proto 解析 body 格式
+2. 游戏回合卡牌（结果）的解析方式，另外在各游戏章节补充解析
 
-3. 代碼參考：
+3. 代码参考：
 
     [Github](https://github.com/wecasino/wecasino-demo-backend-go) (GOLANG)
 
@@ -53,51 +53,51 @@
 
     ```
 
-### 遊戲事件通知說明
+### 游戏事件通知说明
 
-1. 該桌事件通知 (provider 解析)
+1. 该桌事件通知（provider 解析）
 
-    | GameNotifyType  | 說明 |
+    | GameNotifyType  | 说明 |
     |-----------------|------|
-    | GameNotifyType_NOTIFY_GAME_PROVIDE_STATE_CHANGE | 桌狀態變更 |
-    |GameNotifyType_NOTIFY_GAME_DEALER_LOGIN | 荷官登入 代碼名字相關 |
-    |GameNotifyType_NOTIFY_GAME_DEALER_LOGOUT| 荷官登出 代碼名字相關|
-    |GameNotifyType_NOTIFY_GAME_CHANGING_SHOE | 換靴 |
-    |GameNotifyType_NOTIFY_GAME_CAPTURE| 荷官拍照使用的縮圖畫面 |
+    | GameNotifyType_NOTIFY_GAME_PROVIDE_STATE_CHANGE | 桌状态变更 |
+    |GameNotifyType_NOTIFY_GAME_DEALER_LOGIN | 荷官登入代码名字相关 |
+    |GameNotifyType_NOTIFY_GAME_DEALER_LOGOUT| 荷官登出代码名字相关|
+    |GameNotifyType_NOTIFY_GAME_CHANGING_SHOE | 换靴 |
+    |GameNotifyType_NOTIFY_GAME_CAPTURE| 荷官拍照使用的缩图画面 |
 
-2. 該桌班局事件通知 (ShiftRecord 解析)
+2. 该桌班局事件通知（ShiftRecord 解析）
 
-    | GameNotifyType  | 說明 |
+    | GameNotifyType  | 说明 |
     |-----------------|------|
-    |GameNotifyType_NOTIFY_SHIFT_START | 班次開始 |
-    |GameNotifyType_NOTIFY_SHIFT_END | 班次結束 |
+    |GameNotifyType_NOTIFY_SHIFT_START | 班次开始 |
+    |GameNotifyType_NOTIFY_SHIFT_END | 班次结束 |
 
-3. 該桌班局事件通知 (ShoeRecord 解析)
+3. 该桌班局事件通知（ShoeRecord 解析）
 
-    | GameNotifyType  | 說明 |
+    | GameNotifyType  | 说明 |
     |-----------------|------|
-    |GameNotifyType_NOTIFY_SHOE_START | 靴號開始 |
-    |GameNotifyType_NOTIFY_SHOE_END| 靴好結束 |
+    |GameNotifyType_NOTIFY_SHOE_START | 靴号开始 |
+    |GameNotifyType_NOTIFY_SHOE_END| 靴号结束 |
 
-4. 該局相關 (RoundRecord解析)
+4. 该局相关（RoundRecord 解析）
 
-    | GameNotifyType  | 說明 |
+    | GameNotifyType  | 说明 |
     |-----------------|------|
-    |GameNotifyType_NOTIFY_ROUND_START | 通知遊戲開始（可用開始下注起始 可忽略）|
-    |GameNotifyType_NOTIFY_ROUND_BET |通知遊戲開始下注 |
-    |GameNotifyType_NOTIFY_ROUND_NO_MORE_BET| 通知遊戲停止下注|
-    |GameNotifyType_NOTIFY_ROUND_STEP |通知遊戲該局歷程|
-    |GameNotifyType_NOTIFY_ROUND_FINISH| 通知遊戲該局結果|
-    |GameNotifyType_NOTIFY_ROUND_CANCEL| 通知遊戲該局取消|
-    |GameNotifyType_NOTIFY_ROUND_PLAYBACK| 通知遊戲該局回放影像網址|
-    |GameNotifyType_NOTIFY_ROUND_CANCEL_AFTER_ROUND| 事後該局取消結果|
-    |GameNotifyType_NOTIFY_ROUND_MODIFY_AFTER_ROUND | 事後異動牌面結果|
-    |GameNotifyType_NOTIFY_ROUND_FINISH_AFTER_ROUND| 透過後台輸入結果|
+    |GameNotifyType_NOTIFY_ROUND_START | 通知游戏开始（可用开始下注起始 可忽略）|
+    |GameNotifyType_NOTIFY_ROUND_BET |通知游戏开始下注 |
+    |GameNotifyType_NOTIFY_ROUND_NO_MORE_BET| 通知游戏停止下注|
+    |GameNotifyType_NOTIFY_ROUND_STEP |通知游戏该局历程|
+    |GameNotifyType_NOTIFY_ROUND_FINISH| 通知游戏该局结果|
+    |GameNotifyType_NOTIFY_ROUND_CANCEL| 通知游戏该局取消|
+    |GameNotifyType_NOTIFY_ROUND_PLAYBACK| 通知游戏该局回放视频网址|
+    |GameNotifyType_NOTIFY_ROUND_CANCEL_AFTER_ROUND| 事后该局取消结果|
+    |GameNotifyType_NOTIFY_ROUND_MODIFY_AFTER_ROUND | 事后异动牌面结果|
+    |GameNotifyType_NOTIFY_ROUND_FINISH_AFTER_ROUND| 通过后台输入结果|
 
-### BA 牌面解析(SAMPLE)
+### BA 牌面解析（SAMPLE）
 
-1. 根據 GameNotifyType_NOTIFY_ROUND_STEP 事件解析 roundRecord
-來得到目前場上開了哪些牌型 參考使用座位與資源
+1. 根据 GameNotifyType_NOTIFY_ROUND_STEP 事件解析 roundRecord
+来得到目前场上开了哪些牌型 参考使用座位与资源
 
     ``` go
     import (
@@ -137,11 +137,11 @@
 
     ```
 
-### BA 財神號碼說明
+### BA 财神号码说明
 
-1. roundRecord 屬性內有 FortuneRate 顯示卡牌對應倍率，於停止下注時公布，若場上有中對應牌神照遊戲規則賠率調整
+1. roundRecord 属性内有 FortuneRate 显示卡牌对应倍率，于停止下注时公布，若场上有中对应牌神照游戏规则赔率调整
 
-2. map[“CLUB_J”:2 “DIAMOND_8”:8 “HEART_3”:3 “HEART_Q”:2]
+2. map["CLUB_J":2 "DIAMOND_8":8 "HEART_3":3 "HEART_Q":2]
 
     ``` go
     func ParseRoundLucky(ctx context.Context, round *pbRecorder.RoundRecord) map[uint8]uint16 {

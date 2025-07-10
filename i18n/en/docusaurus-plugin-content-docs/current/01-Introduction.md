@@ -42,4 +42,4 @@ A shift typically contains multiple shoes, and one shoe can have multiple rounds
 
 ## Important Notes
 
-1. All data has timestamps for easy tracking and querying 
+1. All data has timestamps for easy tracking and querying

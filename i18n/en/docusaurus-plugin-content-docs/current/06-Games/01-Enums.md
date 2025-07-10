@@ -106,4 +106,4 @@
 | 4 | WHEEL4X10 | 4 slots 10x |
 | 5 | WHEEL2X20 | 2 slots 20x |
 | 6 | WHEELAX45 | 1 slot 45x |
-| 7 | WHEELBX45 | 1 slot 45x | 
+| 7 | WHEELBX45 | 1 slot 45x |

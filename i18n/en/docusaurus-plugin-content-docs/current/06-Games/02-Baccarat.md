@@ -198,4 +198,4 @@ Example: `map["CLUB_J":2 "DIAMOND_8":8 "HEART_3":3 "HEART_Q":2]`
 ### Parse Example
 
 ```go
-``` 
+```

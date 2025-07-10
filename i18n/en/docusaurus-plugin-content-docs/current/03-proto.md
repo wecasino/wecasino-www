@@ -282,4 +282,4 @@ Card, represents various items used in this round
 | status | int64 | Horizontal, vertical... |
 | plain_text | string | Plain text |
 | signature | string | Signature |
-| sign_algorithm | string | Signature method | 
+| sign_algorithm | string | Signature method |

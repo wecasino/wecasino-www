@@ -53,6 +53,6 @@ The Big Battle data format has shoes, with 1 card each for left and right hand p
 | 3 | DEAL_RIGHT | Deal right player hand card |
 | 4 | ROUND_BET | Start betting<br/>Duration: betting seconds<br/>ex Duration: 45 = 45 seconds |
 | 5 | NO_MORE_BET | Stop betting<br/>Duration: betting seconds<br/>ex Duration: 45 = 45 seconds |
-| 6 | SHOW_LEFT | Reveal left player hand card (get result)<br/>Action:<br/>Cards:<br/>• CardType: POKERCARD (target game is card)<br/>• List: [{Code: DIAMOND_5}] (open diamond 5) |
-| 7 | SHOW_RIGHT | Reveal right player hand card (get result)<br/>Action:<br/>Cards:<br/>• CardType: POKERCARD (target game is card)<br/>• List: [{Code: SPADE_6}] (open spade 6) |
-| 8 | ROUND_FINISHED | Round end<br/>Mark round end | 
+| 6 | SHOW_LEFT | Reveal left player hand card (get result)<br/>Action:<br/>Cards:<br/>• CardType: POKERCARD (target game is card)<br/>• List: [&#123;Code: DIAMOND_5&#125;] (open diamond 5) |
+| 7 | SHOW_RIGHT | Reveal right player hand card (get result)<br/>Action:<br/>Cards:<br/>• CardType: POKERCARD (target game is card)<br/>• List: [&#123;Code: SPADE_6&#125;] (open spade 6) |
+| 8 | ROUND_FINISHED | Round end<br/>Mark round end |

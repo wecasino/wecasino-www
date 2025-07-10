@@ -70,5 +70,5 @@ Drop Ball JACKPOT mode, no shoes, only one host dealer position, using Lucky Whe
 | 5 | ROUND_FINISHED | Round end<br/>Mark round end |
 | 6 | LUCKY_WHEEL_ROUND_READY | Lucky Wheel ready<br/>Notify client to prepare for Lucky Wheel process |
 | 7 | LUCKY_WHEEL_ROUND_START | Round start<br/>Mark round officially start |
-| 8 | LUCKY_WHEEL_SPIN_WHEEL | Start spinning wheel (SPIN)<br/>Action:<br/>Cards:<br/>• CardType: WHEEL<br/>• List: [{Code: 4}] (indicates opening the 4th slot card) |
-| 9 | ROUND_FINISHED | Round end<br/>Mark round end and push result data | 
+| 8 | LUCKY_WHEEL_SPIN_WHEEL | Start spinning wheel (SPIN)<br/>Action:<br/>Cards:<br/>• CardType: WHEEL<br/>• List: [&#123;Code: 4&#125;] (indicates opening the 4th slot card) |
+| 9 | ROUND_FINISHED | Round end<br/>Mark round end and push result data |

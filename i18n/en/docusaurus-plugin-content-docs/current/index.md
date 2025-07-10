@@ -12,4 +12,4 @@ id: Version
 
 ## Support
 
-If you have any questions, please contact our technical support team. 
+If you have any questions, please contact our technical support team.

@@ -35,5 +35,5 @@ Fan Tan data format, no shoes, only one host dealer position, using integer card
 | 1 | ROUND_START | Round start<br/>Mark round start |
 | 2 | ROUND_BET | Start betting<br/>Duration: betting seconds<br/>ex Duration: 45 = 45 seconds |
 | 3 | NO_MORE_BET | Stop betting<br/>Duration: betting seconds<br/>ex Duration: 45 = 45 seconds |
-| 4 | GRAB_DICE_AMOUNT | Grab dice (get result)<br/>Action:<br/>Cards:<br/>• CardType: INT (target game is Fan Tan)<br/>• List: [{Code: 149}] (open 149 points divided by 4 to get 1~4 value) |
-| 5 | ROUND_FINISHED | Round end<br/>Mark round end | 
+| 4 | GRAB_DICE_AMOUNT | Grab dice (get result)<br/>Action:<br/>Cards:<br/>• CardType: INT (target game is Fan Tan)<br/>• List: [&#123;Code: 149&#125;] (open 149 points divided by 4 to get 1~4 value) |
+| 5 | ROUND_FINISHED | Round end<br/>Mark round end |

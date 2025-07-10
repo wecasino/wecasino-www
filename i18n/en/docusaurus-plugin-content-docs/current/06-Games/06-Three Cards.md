@@ -55,8 +55,8 @@ Three Cards data format has shoes, with 3 cards each for left and right hand pos
 | 7 | DEAL_RIGHT_3 | Deal right player hand card 3 |
 | 8 | ROUND_BET | Start betting<br/>Duration: betting seconds<br/>ex Duration: 45 = 45 seconds |
 | 9 | NO_MORE_BET | Stop betting<br/>Duration: betting seconds<br/>ex Duration: 45 = 45 seconds |
-| 10 | SHOW_LEFT12 | Reveal left player hand cards 1, 2 (get result)<br/>Action:<br/>Cards:<br/>• CardType: POKERCARD (target game is card)<br/>• List: [{Code: DIAMOND_2}] (open diamond 2) |
-| 11 | SHOW_RIGHT12 | Reveal right player hand cards 1, 2 (get result)<br/>Action:<br/>Cards:<br/>• CardType: POKERCARD (target game is card)<br/>• List: [{Code: DIAMOND_3}] (open diamond 3) |
-| 12 | SHOW_LEFT_3 | Reveal left player hand card 3 (get result)<br/>Action:<br/>Cards:<br/>• CardType: POKERCARD (target game is card)<br/>• List: [{Code: SPADE_7}] (open spade 7) |
-| 13 | SHOW_RIGHT_3 | Reveal right player hand card 3 (get result)<br/>Action:<br/>Cards:<br/>• CardType: POKERCARD (target game is card)<br/>• List: [{Code: SPADE_9}] (open spade 9) |
-| 14 | ROUND_FINISHED | Round end<br/>Mark round end | 
+| 10 | SHOW_LEFT12 | Reveal left player hand cards 1, 2 (get result)<br/>Action:<br/>Cards:<br/>• CardType: POKERCARD (target game is card)<br/>• List: [&#123;Code: DIAMOND_2&#125;] (open diamond 2) |
+| 11 | SHOW_RIGHT12 | Reveal right player hand cards 1, 2 (get result)<br/>Action:<br/>Cards:<br/>• CardType: POKERCARD (target game is card)<br/>• List: [&#123;Code: DIAMOND_3&#125;] (open diamond 3) |
+| 12 | SHOW_LEFT_3 | Reveal left player hand card 3 (get result)<br/>Action:<br/>Cards:<br/>• CardType: POKERCARD (target game is card)<br/>• List: [&#123;Code: SPADE_7&#125;] (open spade 7) |
+| 13 | SHOW_RIGHT_3 | Reveal right player hand card 3 (get result)<br/>Action:<br/>Cards:<br/>• CardType: POKERCARD (target game is card)<br/>• List: [&#123;Code: SPADE_9&#125;] (open spade 9) |
+| 14 | ROUND_FINISHED | Round end<br/>Mark round end |

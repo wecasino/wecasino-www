@@ -52,5 +52,5 @@ SUPER GAME mode, no shoes, only one host dealer position, using color card type 
 | 7 | SUPER_GAME_ROUND_START | SUPER GAME start<br/>Mark SUPER GAME officially start |
 | 8 | SUPER_GAME_ROUND_BET | SUPER GAME betting phase<br/>Duration: SUPER GAME betting time |
 | 9 | SUPER_GAME_NO_MORE_BET | SUPER GAME stop betting<br/>Countdown prompt end |
-| 10 | SUPER_GAME_THROW_COLOR | SUPER GAME throw ball result<br/>Action:<br/>Cards:<br/>• CardType: Color<br/>• List: [{Code: 4}] (open the 4th slot) |
-| 11 | ROUND_FINISHED | Round end<br/>Push result data | 
+| 10 | SUPER_GAME_THROW_COLOR | SUPER GAME throw ball result<br/>Action:<br/>Cards:<br/>• CardType: Color<br/>• List: [&#123;Code: 4&#125;] (open the 4th slot) |
+| 11 | ROUND_FINISHED | Round end<br/>Push result data |
