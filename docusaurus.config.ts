@@ -33,8 +33,18 @@ const config: Config = {
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: 'zh-TW',
+    locales: ['zh-TW', 'en'],
+    localeConfigs: {
+      'zh-TW': {
+        label: '繁體中文',
+        direction: 'ltr',
+      },
+      'en': {
+        label: 'English',
+        direction: 'ltr',
+      },
+    },
   },
 
   presets: [
@@ -42,93 +52,12 @@ const config: Config = {
       'classic',
       {
         docs: {
-          sidebarPath: './sidebars.ts',
-          includeCurrentVersion: false,
-          versions: {
-            // https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-docs#VersionsConfig
-            // badge: true,
-            '1.8.0': {
-              label: '1.8.0',
-              banner: 'none', 
-              badge: true, // always show badge
-              noIndex: false, // only last version can be indexed
-            },
-            // banner: 'unmaintained',
-            // noIndex: true,
-            '1.7.0': {
-              label: '1.7.0',
-              banner: 'unmaintained',
-              badge: true,
-              noIndex: true,
-            },
-          },
+          routeBasePath: '/',
         },
         blog: false,
-        theme: {
-          customCss: './src/css/custom.css',
-        },
       } satisfies Preset.Options,
     ],
   ],
-
-  // plugins: [
-  //   [
-  //     '@docusaurus/plugin-content-docs',
-  //     {
-  //       id: 'beta',
-  //       path: 'beta',
-  //       routeBasePath: '/docs/beta',
-  //       sidebarPath: './sidebars.ts',
-  //       includeCurrentVersion: false,
-  //       versions: {
-  //         '1.8.0-beta.2': {
-  //           label: '測試版',
-  //           path: '1.8.0/beta/1.8.0-beta.2',
-  //           banner: 'unreleased',
-  //         },
-  //         '1.8.0-beta.1': {
-  //           label: '測試版',
-  //           path: '1.8.0/beta/1.8.0-beta.1',
-  //           banner: 'unreleased',
-  //         },
-  //       },
-  //     },
-  //   ],
-    // [
-    //   '@docusaurus/plugin-content-docs',
-    //   {
-    //     id: 'alpha',
-    //     path: 'versioned_docs/1.8.0/alpha',
-    //     routeBasePath: '/docs/alpha',
-    //     sidebarPath: './sidebars.ts',
-    //     lastVersion: '1.8.0-alpha.1',
-    //     versions: {
-    //       '1.8.0-alpha.1': {
-    //         label: '開發版',
-    //         path: '1.8.0/alpha/1.8.0-alpha.1',
-    //         banner: 'unreleased',
-    //       },
-    //     },
-    //   },
-    // ],
-    // [
-    //   '@docusaurus/plugin-content-docs',
-    //   {
-    //     id: 'dev',
-    //     path: 'versioned_docs/1.8.0/dev',
-    //     routeBasePath: '/docs/dev',
-    //     sidebarPath: './sidebars.ts',
-    //     lastVersion: '1.8.0-dev.1',
-    //     versions: {
-    //       '1.8.0-dev.1': {
-    //         label: '開發版',
-    //         path: '1.8.0/dev/1.8.0-dev.1',
-    //         banner: 'unreleased',
-    //       },
-    //     },
-    //   },
-    // ],
-  // ],
 
   themeConfig: {
     // Replace with your project's social card
@@ -141,14 +70,8 @@ const config: Config = {
       },
       items: [
         {
-          type: 'docsVersion',
-          position: 'left',
-          label: 'Release',
-        },
-        {
-          type: 'docsVersionDropdown',
+          type: 'localeDropdown',
           position: 'right',
-          dropdownActiveClassDisabled: true,
         },
         {
           href: 'https://github.com/wecasino/wecasino-www',
@@ -160,27 +83,6 @@ const config: Config = {
     footer: {
       style: 'dark',
       links: [
-        {
-          title: 'Docs',
-          items: [
-            {
-              label: 'Release',
-              to: 'docs',
-            },
-            {
-              label: 'beta',
-              to: '/docs/beta',
-            },
-            {
-              label: 'alpha',
-              to: '/docs/alpha',
-            },
-            {
-              label: 'dev',
-              to: '/docs/dev',
-            },
-          ],
-        },
         {
           title: '更多',
           items: [
