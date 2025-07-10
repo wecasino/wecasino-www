@@ -35,16 +35,16 @@ const config: Config = {
   i18n: {
     defaultLocale: 'zh-TW',
     locales: ['zh-TW', 'en'],
-    localeConfigs: {
-      'zh-TW': {
-        label: '繁體中文',
-        direction: 'ltr',
-      },
-      'en': {
-        label: 'English',
-        direction: 'ltr',
-      },
-    },
+    // localeConfigs: {
+    //   'zh-TW': {
+    //     label: '繁體中文',
+    //     direction: 'ltr',
+    //   },
+    //   'en': {
+    //     label: 'English',
+    //     direction: 'ltr',
+    //   },
+    // },
   },
 
   presets: [

@@ -2,12 +2,13 @@
 # Lucky Wheel (LUCKYWHEEL)
 
 ## Game Code
+
 - GameType: `LUCKYWHEEL`
 - Value: 40
 
 ## Game Description
 
-Rainbow Lucky Wheel data format, no shoe, only one main dealer position. Uses Lucky Wheel specific WHEEL card type. After Lucky Wheel stops spinning, updates round data's dealer position (DEALER) field (FIELD) cards. Notifies operators through data push interface.
+Rainbow Lucky Wheel data format, no shoes, only one host dealer position, using Lucky Wheel specific card type WHEEL. When the lucky wheel stops spinning, the field (FIELD) cards in the dealer position (DEALER) in the round data will be updated, and operators will be notified through the data push interface.
 
 ## Lucky Wheel Subtypes
 
@@ -19,11 +20,11 @@ Rainbow Lucky Wheel data format, no shoe, only one main dealer position. Uses Lu
 
 | Seat | Resource | Card Type | Description |
 |------|----------|-----------|-------------|
-| DEALER | FIELD | WHEEL | Round result |
+| DEALER | FIELD | WHEEL | Current round result |
 
 ## Lucky Wheel Specific Cards
 
-| Card | Grids | Multiplier | Color |
+| Card | Slots | Multiplier | Color |
 |------|-------|------------|-------|
 | WHEEL24X1 | 24 | 1 | Yellow |
 | WHEEL12X3 | 12 | 3 | Blue |
@@ -37,8 +38,8 @@ Rainbow Lucky Wheel data format, no shoe, only one main dealer position. Uses Lu
 
 | Order | Step | Description |
 |-------|------|-------------|
-| 1 | ROUND_START | Round start<br/>Indicates round beginning |
+| 1 | ROUND_START | Round start<br/>Mark round start |
 | 2 | ROUND_BET | Start betting<br/>Duration: betting seconds<br/>ex Duration: 45 = 45 seconds |
 | 3 | NO_MORE_BET | Stop betting<br/>Duration: betting seconds<br/>ex Duration: 45 = 45 seconds |
-| 4 | SPIN_WHEEL | Spin wheel (get result)<br/>Action:<br/>Cards:<br/>• CardType: WHEEL //target game is Lucky Wheel<br/>• List: [{Code: WHEELAX45}] //landed on Orange 45x |
-| 5 | ROUND_FINISHED | Round end<br/>Indicates round completion | 
+| 4 | SPIN_WHEEL | Spin wheel (get result)<br/>Action:<br/>Cards:<br/>• CardType: WHEEL (target game is Lucky Wheel)<br/>• List: [{Code: WHEELAX45}] (open orange 45x) |
+| 5 | ROUND_FINISHED | Round end<br/>Mark round end | 
