@@ -11,6 +11,8 @@
 | 18 | THREECARDS | 炸金花 |
 | 20 | FANTAN | 番攤 |
 | 32 | SICBO | 骰寶 |
+| 33 | COLORGAME             | 色彩遊戲 |
+| 34 | DROPBALL              | 幸運球 |
 | 40 | LUCKYWHEEL | 幸運輪 |
 
 ## 流程共用參數
